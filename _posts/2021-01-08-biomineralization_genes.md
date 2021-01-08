@@ -9,5 +9,6 @@ This [list](https://github.com/Mass-Lab/Open_Lab_Notebook_Mass_Lab/blob/master/F
 
 **List preview:**
 
-![list](https://github.com/Mass-Lab/Open_Lab_Notebook_Mass_Lab/blob/master/images/list.png "list")
+![list]({{site.baseurl}}/images/list.png "list")
+
 
