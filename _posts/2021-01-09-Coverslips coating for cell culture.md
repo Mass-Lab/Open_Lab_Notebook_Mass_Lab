@@ -5,7 +5,7 @@ category: [ Library Prep, cell culture ]
 tags: [ Coral, cell culture, Stylophora pistilata ]
 ---
 
-## ## Laminin Solution
+## Laminin Solution
 
 Laminin (Sigma # L 2020, 1mg/ml) 
 Aliquot  into   20μl units
