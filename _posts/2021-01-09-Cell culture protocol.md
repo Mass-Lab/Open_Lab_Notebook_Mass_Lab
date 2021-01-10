@@ -73,4 +73,4 @@ Work with 6wells or 5ml petri-dish
 - Filter (0.2µm) the medium with the cells to a sterile plate (1ml to each plate) and add 4ml of fresh medium
 - Incubate in humidified chamber with 12/12 h light dark cycle at 26C and change medium every 3 days. 
 
-
+![cell culture]({{site.baseurl}}/images/Cell culture.png "cell culture")
