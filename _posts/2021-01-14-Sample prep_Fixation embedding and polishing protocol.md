@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Sample prep Fixation embedding and polishing protocol follow Mass et al 2017 PNAS
+title: Sample prep fixation embedding and polishing protocol follow Mass et al 2017 PNAS
 category: [ Fixation, Microscopy, spectroscopy ]
 tags: [ Coral, microscopy ]
 ---
