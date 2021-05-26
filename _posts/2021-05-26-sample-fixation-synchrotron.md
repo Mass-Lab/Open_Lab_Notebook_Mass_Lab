@@ -19,7 +19,7 @@ Ten days old spats of the coral _Stylophora pistillata_ were fixed with resin fo
 - Gently add a drop of resin mix on the coral spat, wait for the resin to drip down the pipette. Add a second drop.
 - After 1 hour add a third drop, make sure that the resin doesn't drip down (the resin is almost solidified at this point). 
 
-![sample]({{site.baseurl}}/images/Sample_on_tip.jpg "sample")
+![sample]({{site.baseurl}}/images/Spat_on_tip.jpg "sample")
 
 - After 24 hours insert the tip + cup into the cryotube and close it. Your samples are ready for synchrotron radiation imaging!
 
