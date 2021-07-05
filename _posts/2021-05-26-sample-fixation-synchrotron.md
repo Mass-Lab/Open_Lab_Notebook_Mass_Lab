@@ -13,7 +13,7 @@ Ten days old spats of the coral _Stylophora pistillata_ were fixed with resin fo
 
 - Take one filtered tip (20 µl) and cryotube (2ml) per each sample. Cut the top part of the tip (this is where the spat will be placed) and the bottom part of the tip.
 - Fit the bottom part of the tip in the lid of the cryotube. If necessary cut more of the bottom-tip to ease the interlock.
-- Mix 15 parts of resin with 2 parts of hardener in a plastic/paper cup and stir. At this point bubbles will form, so heat the Epofix mixture to remove them.
+- Mix 15 parts of resin with 2 parts of hardener in a 2 ml tube. At this point bubbles will form, so use a vacuum system to remove them.
 - Put a drop of resin mix at the top of the tip using a Pasteur pipette.  
 - Gently place the coral spat at the top of the tip using a razor blade.
 - Gently add a drop of resin mix on the coral spat, wait for the resin to drip down the pipette. Add a second drop.
