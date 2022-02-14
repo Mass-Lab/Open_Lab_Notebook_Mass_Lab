@@ -9,7 +9,7 @@ Name: name: Open Lab Notebook_Mass Lab
 description: Lab Notebook
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: "https://avatars.githubusercontent.com/u/98453524?s=400&u=0aae6076428cc3ba464d5b610c64ac1f44a69004&v=4"
+avatar:
 
 #
 # Flags below are optional
