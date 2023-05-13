@@ -14,7 +14,7 @@ This protocol will guide you through making your own online notebook forked from
 
 # <center> Steps:
 
-## 1. Fork The Repository from [Putnam_Lab_Notebook](https://github.com/hputnam/Putnam_Lab_Notebook) or [Jekyll-now](https://github.com/barryclark/jekyll-now)
+## 1. Fork The Repository from [Mass_Lab_Notebook] (https://github.com/Mass-Lab/Open_Lab_Notebook_Mass_Lab) or [Jekyll-now](https://github.com/barryclark/jekyll-now)
 
 * Fork the repository to **yourgithubusername**.github.io
 * Make sure you have a directory on your computer
