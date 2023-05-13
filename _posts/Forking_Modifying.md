@@ -11,16 +11,16 @@ _Written by Maggie Schedl_
 
 
 **Important Links:**  
-[Hollie's Notebook](https://github.com/hputnam/Putnam_Lab_Notebook)  
+[Mass's Notebook](https://github.com/talimass/Talimass_Lab_Notebook_Mass_Lab)  
 [Original Jekyll Blog](https://github.com/barryclark/jekyll-now)
 
 ### Steps
 
 1. Open your Terminal application. If you have a mac the name of the app is terminal. If you have a pc there should be an option to open the Command Prompt, or you may have to install putty.
 
-2. `cd Desktop/folder-for-Putnam-lab` Get yourself into the folder you want, you can make folders with your finder or in the terminal as in the next step. If your folder is in a different place, like Documents put that in the path.
+2. `cd name_of_folder_location` Get yourself into the folder you want, you can make folders with your finder or in the terminal as in the next step. If your folder is in a different place, like Documents put that in the path.
 
-3. `mkdir Notebook-Directory` Make a directory (same thing as a folder) where you want to put the repository for the Putnam Lab Notebook. This is where all the files will go.
+3. `mkdir Notebook-Directory` Make a directory (same thing as a folder) where you want to put the repository for the Mass Lab Notebook. This is where all the files will go.
 
 4. `cd Notebook-Directory` Go into the directory you just made.
 
@@ -28,9 +28,9 @@ _Written by Maggie Schedl_
 
 > _You may get an error here that says invalid active developer path, use this code_ `xcode - select --install` _in your terminal to fix it, you should then be able to use git init._
 
-6. Login to [GitHub](https://github.com/) and go to [Hollie's Notebook](https://github.com/hputnam/Putnam_Lab_Notebook). If you don't have an account, make one. It's free!
+6. Login to [GitHub](https://github.com/) and go to [Mass's Notebook](https://github.com/talimass/Talimass_Lab_Notebook_Mass_Lab) . If you don't have an account, make one. It's free!
 
-7. Click the button in the top right corner that says Fork. It will take everything from Hollie's repository and create a copy in your account. Once that is done go into the settings of that repository and change the name. For example mine is MESPutnam_Open_Lab_Notebook. Just remember to not use spaces.
+7. Click the button in the top right corner that says Fork. It will take everything from Hollie's repository and create a copy in your account. Once that is done go into the settings of that repository and change the name. For example mine is Talimass_Lab_Notebook_Mass_Lab. Just remember to not use spaces.
 
 8. Whenever you want to get back to the home of your repository just click the <>Code tab. In that tab click the green button on the right that says Clone or Download. It will give you a link, copy that link.
 
@@ -40,9 +40,9 @@ _Written by Maggie Schedl_
 
 11. Back in GitHub online, go to the setting tab again. Scroll to the GitHub Pages section; this is where you tell the site that you want your notebook to be made into a website. Use the dropdown menu to change the source to master branch.
 
-12. A box will come up that says your site is ready to be published/is published and then gives you a link that will look something like this: https://meschedl.github.io/MESPutnam_Open_Lab_Notebook/ but with your username and repo name. You may have to go back and click on settings again for it to go. Copy this url.
+12. A box will come up that says your site is ready to be published/is published and then gives you a link that will look something like this: https://github.com/talimass/Talimass_Lab_Notebook_Mass_Lab/ but with your username and repo name. You may have to go back and click on settings again for it to go. Copy this url.
 
-13. Go back to the <>Code section.  At the top it says "Open Lab Notebook" and the link to Hollie's Notebook. Click edit, rename the description to whatever you want, and paste the link you got from the settings page. This makes it so that people can click the link directly when they get to your repository and it will take them to your site instead of Hollie's.
+13. Go back to the <>Code section.  At the top it says "Open Lab Notebook" and the link to Mass's Notebook. Click edit, rename the description to whatever you want, and paste the link you got from the settings page. This makes it so that people can click the link directly when they get to your repository and it will take them to your site instead of Hollie's.
 
 14. On your computer finder go to the folder where your repository is. Open the file called _config.yml in your preferred text editor. I use [Atom](https://atom.io/)
 
@@ -63,7 +63,7 @@ _Written by Maggie Schedl_
 
 > _You may have to put in your login information if this is your first push. You can also set this up so you won't have to login again: `git config --global user.name "John Doe"` and `git config --global user.email johndoe@example.com`_
 
-20. There are a few more things to change. On your computer open the _layouts folder and open the default.html file. Edit line 45 to be the link to your GitHub notebook (ex. https://github.com/meschedl/MESPutnam_Open_Lab_Notebook/)
+20. There are a few more things to change. On your computer open the _layouts folder and open the default.html file. Edit line 45 to be the link to your GitHub notebook (ex. https://github.com/talimass/Talimass_Lab_Notebook_Mass_Lab)
 
 21. Save the file and push it to GitHub
 
@@ -73,7 +73,7 @@ _Written by Maggie Schedl_
 
 `git push origin master`
 
-22. You also have a file called README.md. If you saw at the bottom of the <>Code page on GitHub there is a little window that says Open For Science. This is where Hollie wrote about her rational for having a public and open lab notebook. You can keep it how it is or change it to include your  name, etc.
+22. You also have a file called README.md. If you saw at the bottom of the <>Code page on GitHub there is a little window that says Open For Science. This is where you can write anything that describes your lab notebook. You can keep it how it is or change it to include your  name, etc.
 
 23. Save and add to GitHub in the same way  
 
@@ -83,7 +83,7 @@ _Written by Maggie Schedl_
 
 `git push origin master`
 
-24. The last thing you'll probably want to edit before moving on to posts is the about page. Hollie has this page set up to be as your CV. This file is set up as a [Markdown file](https://guides.github.com/features/mastering-markdown/) meaning it has the .md extension. This is a certain way of writing files with simple syntax like # or ** that make headings and type styles instead of changing them with buttons like in Word. [Another Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) or a [tutorial](https://www.markdowntutorial.com/). You can also look at the [Raw code](https://raw.githubusercontent.com/hputnam/Putnam_Lab_Notebook/master/about.md) of Hollie's CV page (this is what you should see when you open the file) to get ideas for layouts. Save the file and add it.
+24. The last thing you'll probably want to edit before moving on to posts is the about page. Tali has this page set up to be as your CV. This file is set up as a [Markdown file](https://guides.github.com/features/mastering-markdown/) meaning it has the .md extension. This is a certain way of writing files with simple syntax like # or ** that make headings and type styles instead of changing them with buttons like in Word. [Another Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) or a [tutorial](https://www.markdowntutorial.com/). You can also look at the [Raw code](https://raw.githubusercontent.com/Mass-Lab/Open_Lab_Notebook_Mass_Lab/master/about.md) of Tali's about page (this is what you should see when you open the file) to get ideas for layouts. Save the file and add it.
 
 `git add about.md`
 
@@ -91,7 +91,7 @@ _Written by Maggie Schedl_
 
 `git push origin master`
 
-25. Now you're almost ready to make a post. However, there are already posts on your page from where you forked your repository. In GitHub you can click on the _posts folder, click on each post, click the small trashcan icon in the upper righthand corner and delete the post. It'll ask you to commit and it looks pretty serious, but as long as you are deleting from your repository (ex. https://meschedl.github.io/MESPutnam_Open_Lab_Notebook/) you are fine. Make sure to not delete the post_template.sh file. As a general rule if you delete all files in a folder it will remove the folder.
+25. Now you're almost ready to make a post. However, there are already posts on your page from where you forked your repository. In GitHub you can click on the _posts folder, click on each post, click the small trashcan icon in the upper righthand corner and delete the post. It'll ask you to commit and it looks pretty serious, but as long as you are deleting from your repository (ex. https://github.com/talimass/Talimass_Lab_Notebook_Mass_Lab/) you are fine. Make sure to not delete the post_template.sh file. As a general rule if you delete all files in a folder it will remove the folder.
 
 26. Before we can change around things on the computer and push them to GitHub, you have to pull the changes you made in GitHub to your computer. Communication is key 👌   
 In the terminal
@@ -108,4 +108,4 @@ In the terminal
 `---`  
 This is what sets up the layout for each post.
 
-29. Write your post in Markdown format. Here are examples from [Me](https://meschedl.github.io/MESPutnam_Open_Lab_Notebook/Montipora-Larvae-DNA-RNA-Test/), [Hollie](https://github.com/hputnam/Putnam_Lab_Notebook/blob/master/_posts/2016-08-31-Geoduck_RNA_Testing.md), [Kevin](https://github.com/kevinhwong1/KevinHWong_Notebook/blob/master/_posts/2019-03-14-Citrate-Synthase-Troubleshooting.md), and [Erin](https://github.com/echille/E.-Chille-Open-Lab-Notebook/blob/master/_posts/2019-04-01-Montipora-Larvae-DNA-RNA-Extraction-Batch-4.md). Look at the Raw version of any of these files to get the syntax for each element, ex links, images, and tables. Save images into your image folder, you can create other folders for things like pdfs or R scripts. Think of your notebook repository just as your physical one, where you put all your information. Csv files can even be easily added to the repo and looked at online: [example](https://github.com/kevinhwong1/Astrangia_Nutrition/blob/master/RAnalysis/Data/BouyantWeight_Apoc2019.csv). The easiest way to get ideas is to look at the notebooks for everyone in the lab and emulate what you like that they have. Save, commit, and push your post to the online repo and it should post within 10 minutes to the actual site.  
+29. Write your post in Markdown format. Here are examples from Putnam lab[MS](https://meschedl.github.io/MESPutnam_Open_Lab_Notebook/Montipora-Larvae-DNA-RNA-Test/), [Hollie](https://github.com/hputnam/Putnam_Lab_Notebook/blob/master/_posts/2016-08-31-Geoduck_RNA_Testing.md), [Kevin](https://github.com/kevinhwong1/KevinHWong_Notebook/blob/master/_posts/2019-03-14-Citrate-Synthase-Troubleshooting.md), and [Erin](https://github.com/echille/E.-Chille-Open-Lab-Notebook/blob/master/_posts/2019-04-01-Montipora-Larvae-DNA-RNA-Extraction-Batch-4.md). Look at the Raw version of any of these files to get the syntax for each element, ex links, images, and tables. Save images into your image folder, you can create other folders for things like pdfs or R scripts. Think of your notebook repository just as your physical one, where you put all your information. Csv files can even be easily added to the repo and looked at online: [example](https://github.com/kevinhwong1/Astrangia_Nutrition/blob/master/RAnalysis/Data/BouyantWeight_Apoc2019.csv). The easiest way to get ideas is to look at the notebooks for everyone in the lab and emulate what you like that they have. Save, commit, and push your post to the online repo and it should post within 10 minutes to the actual site.  
