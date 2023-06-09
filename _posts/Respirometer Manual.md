@@ -41,7 +41,8 @@ Protocol for Respirometry (oxygen flux in sealed chambers) using the PyroScience
 - [OXROB10 Oxygen Probes](https://www.pyroscience.com/en/products/all-sensors/oxrob10)    
 - [Pt100 Temperature Probes] (https://www.pyroscience.com/en/products/all-sensors/tdip15) 
 - [Pyroscience software of FSO2-C4 : Optical Oxygen & Temp Meter FireSting®-O2 (4 Channels] (https://www.pyroscience.com/en/downloads/laboratory-devices)  
-- [Respirometer stand (with 4 screw-on legs) or underwater stirring plate](https://github.com/Putnam-Lab/Lab_Management/blob/master/images/oxy10_base.JPG?raw=true)
+- [Respirometer stand (with 4 screw-on legs) or underwater stirring plate](https://github.com/talimass/Talimass_Lab_Notebook_Mass_Lab/blob/master/images/20221103_104853_table%20and%20chambers.jpg?raw=true) 
+	![Side view](https://github.com/talimass/Talimass_Lab_Notebook_Mass_Lab/blob/master/images/table%20with%20chambers.jpg?raw=true)
 - [Replacement motor](https://www.maxongroup.com/maxon/view/service_search?query=459049) - Maxon Motors Part # 459049 - 110182 A-max 26, 7W 6v DC motor + 144035 Planetary Gearhead, 26B, 53:1
 - [Replacement Switch](https://au.element14.com/itw-switches/19n402r15/microswitch-v4-roller-lever/dp/521875)
 - [Silicon - DuPont Molykote 112 High Performance Silicon Food Grade](https://www.mcmaster.com/1204K42/)
@@ -49,13 +50,13 @@ Protocol for Respirometry (oxygen flux in sealed chambers) using the PyroScience
 3 mm Wide, 165 mm ID
 - Stir system small orings - Oil-Resistant Buna-N O-Ring
 3 mm Wide, 125 mm ID
-- [Chambers](https://github.com/Putnam-Lab/Lab_Management/blob/master/images/oxy10_singlechamber.JPG?raw=true) (8 can be measured at any one time with the FireSting-O2)
+- [Chambers](https://github.com/talimass/Talimass_Lab_Notebook_Mass_Lab/blob/master/images/Chamber.jpg?raw=true) (8 can be measured at any one time with the FireSting-O2)
 	- MAKE SURE BOTH TOP AND BOTTOM OF THE CHAMBERS ARE LABELLED
 - Magnetic stir bars x8 (35-40mm)
 - Chamber screw key - ADD PHOTO HERE
-- [Battery] (https://www.batteriesdirect.com.au/shop/product/24804/yuasa-np-series-6v-3ah-vrla-battery.html)
+- [Battery] (https://github.com/talimass/Talimass_Lab_Notebook_Mass_Lab/blob/master/images/Battery.jpg?raw=true)
 	- Height	2.4" Width	5.3" Depth	1.3"
-- Battery Charger
+- [Battery Charger] (https://github.com/talimass/Talimass_Lab_Notebook_Mass_Lab/blob/master/images/Charger.jpg?raw=true)
 - Strap Wrench
 - Parafilm
 - [Large cooler](https://smile.amazon.com/gp/product/B004QILD6W/ref=ppx_yo_dt_b_asin_title_o08_s00?ie=UTF8&psc=1)
@@ -73,7 +74,8 @@ Protocol for Respirometry (oxygen flux in sealed chambers) using the PyroScience
 
 <a name="Bath"></a> **Water Bath Setup**
 
-1. Make sure you choose a tank that can contain the respirometry stand (L49cm X W31cm X H32cm) and have an extra room for all coral fragments, or use two tanks, one for the respirometry stand and the other one for all coral fragments to grow in. Fill the tank with source water, enough to just fully submerge the chambers once the chambers are placed inside (~31-32 cm high).
+1. Make sure you choose a tank that can contain the respirometry stand (L49cm X W31cm X H32cm) and have an extra room for all coral fragments, or use two tanks, one for the respirometry stand and the other one for all coral fragments to grow in. Fill the tank with source water, enough to just fully submerge the chambers once the chambers are placed inside (~31-32 cm high).  
+	- [Tank set up] (https://github.com/talimass/Talimass_Lab_Notebook_Mass_Lab/blob/master/images/Tank%20set%20up.jpg?raw=true)
 
 Measure and record the temperature and salinity of the source water (where the corals are kept).
 
@@ -90,7 +92,7 @@ Measure and record the temperature and salinity of the source water (where the c
 <a name="Battery"></a> **Connecting the Battery**
 
 1. Make sure the battery is charged. 
-1. Unscrew the cap of the sealed battery compartment on the underside of the respirometer and locate the red and black cables.  Attach the red clip to the positive terminal (marked in red) on the battery and the black clip to the negative terminal (marked in black).  Test your connection and battery power by turning the switch on the other side of battery compartment **clockwise**.  The conveyor belt should start moving at a quick pace.  Turn the switch off.  
+1. Unscrew the cap of the sealed [battery compartment] (https://github.com/talimass/Talimass_Lab_Notebook_Mass_Lab/blob/master/images/Battery%20compartment.jpg?raw=true) on the underside of the respirometer and locate the red and black cables.  Attach the red clip to the positive terminal (marked in red) on the battery and the black clip to the negative terminal (marked in black).  Test your connection and battery power by turning the switch on the other side of battery compartment [**clockwise**] (https://github.com/talimass/Talimass_Lab_Notebook_Mass_Lab/blob/master/images/battery%20power.jpg?raw=true).  The conveyor belt should start moving at a quick pace.  Turn the switch off.  
 1. If the belt does not move or moves slowly, the battery needs to be switched out and recharged.  
 1. As an additional check, you can unscrew a chamber base, insert a stir bar in the center divet of the base, then reseal the chamber.  Place the chamber in one of the chamber slots and note the rotation speed of the stir bar.  If the stir bar is spinning slowly or not at all, the battery needs to be switched out and recharged.  
 
@@ -106,7 +108,7 @@ Measure and record the temperature and salinity of the source water (where the c
 
 Below is an example of the entire set-up. This can be modified to be specific to whatever lab or space you are in, but the **electronics need to be completely dry and far above/away from any potential water leak or water source**.  
 
-![labeledoxysetup](https://github.com/Putnam-Lab/Lab_Management/blob/master/Lab_Resources/Equipment_Protocols/Equip_Images/resp-setup-total.jpg?raw=true)
+![labeledoxysetup](https://github.com/talimass/Talimass_Lab_Notebook_Mass_Lab/blob/master/images/The%20whole%20set%20up.jpg?raw=true)
 
 Be very delicate with the oxygen probes.  Leave the cap on the end when not in use and do not scratch the tip.  The oxygen cord should never be coiled too tightly or bent, or the sensor will break.
 
@@ -118,154 +120,56 @@ Be very delicate with the oxygen probes.  Leave the cap on the end when not in u
 1.    Plug the USB connector cord into your computer and the other end into the FireSting
 
 
-![Oxy10 Back](https://github.com/Putnam-Lab/Lab_Management/blob/master/images/oxy10-back.JPG?raw=true)
+![Oxygen meter](https://github.com/talimass/Talimass_Lab_Notebook_Mass_Lab/blob/master/images/20230105_10051_Oxymeter.jpg?raw=true) 
 
 <a name="Software Setup"></a> **Software Setup**
 
-### PreSens Measurement Studio 2 Software Setup
+## Final Chamber Checks
+
+Last checks before starting to record data:  
+
+1.	Stir bars spinning in place and at normal speed (If not, the battery needs to be switched out and recharged - see Take-Down instructions for proper procedures)
+2. 	Chambers are securely fastened on the respirometer stand
+3. 	No bubbles are present inside the chambers or on the sensors.
+4. 	The sensors are snug and secure in the chambers
+5.	The correct probes are in the correct chambers. 
+6. 	All the data is recorded on your datasheet (Each fragment is associated with the correct Cell number and sensor number). 
+
+
+### FireSting Measurement Manual Pyro Workbench Software Setup
 
 Perform instructions in the correct order!!
 
 ## Set up
-1.    Connect `OXY10` to a power source
-
-![Oxy10 Front](https://github.com/Putnam-Lab/Lab_Management/blob/master/images/oxy10_front.JPG?raw=true)
-
-2.   Close all applications on the computer (PC ONLY)
-3.    Connect `OXY10` to the computer
-4.    Launch the `PreSens Measurement Studio 2` Program on the computer
-5.    Remove sensor covers and connect to `OXY10`
+1.  Set-up one FireSting device with four oxygen sensors and one temperature sensor (Use the– Manual Pyro Workbench).
+2. Choose to measure oxygen concentration with units of- µmol/L and record every 10 sec. 
+3. Measure water salinity. 
+4. Calibrate the oxygen sensors with air saturated seawater. Insert an air pump into a glass with ~700ml seawater and let it bubble for 10 minutes. Transfer the water to a metabolic cell, insert a magnetic stirrer and the oxygen sensor, close the hole with plasteline, let it stable and calibrate 
+5. •	Insert the coral fragments to the chambers (one fragment into one cell) and leave one cell empty (blank- for measuring the oxygen production/consumption of the sea water). The plugs with the coral fragments should be held by the screw inside the chambers. Once the source water is at the desired temperature, submerge the chamber top and bottom and shake off or wipe away any air bubbles. Screw the plug with the coral fragment to the bottom of the chamber, while underwater. Then fill the other part of the chamber with water, insert a magnetic stir bar and close the chamber. Flip it, open the plastic lid (place the plastic screw in a bag) and let it fill with water, then, screw the chamber into the table. Make sure that they are tightly screwed and that the water level covers the chambers.     
+6. Insert an oxygen sensor to each cell, through the hole at the top of the chamber. The sensor tip should be at least 2 cm into the chamber, and not more than a half of it should be submerged in the water. ![coral in the chamber] ( 
+7. Use a syringe to fill in with seawater or to take out all the air bubbles and seal the holes with plasteline (after you insert the oxygen sensor). 
+8. Turn the stir system power switch to on, and check for proper stir bar placement. If any stir bars are not spinning or are out of place, try to place it using a stir bar stick or loosen the bolt and gently jiggle the chamber until the bar is reset in the center of the divot.
+9. When all chambers are ready, immerse the temperature sensor (Pt100) into the water tank.
+10. Cover the cells for 30 minutes in complete darkness. 
+11. After 30min of acclimation to the dark, oxygen conc. will be measured first in the dark and then in six increasing light intensities (50, 100, 200, 300, 400, and 600  µmol photons/m-2/s-1), which will elevate every 15min. 
 
 
 ## Oxygen sensor installation
 
-1. Line up notch on the side of the cable to the opening in the port
-1. Push in the metal part on the cord and guide the notch through the grooves
-	- Be careful when inserting, never force it. If inserting correctly, the ports will align without resistance.
+Be very delicate with the oxygen probes. Leave the cap on the end when not in use and do not scratch or touch their tips. The oxygen cord should never be coiled too tightly or bent, or the sensor will break.
 
-![Oxy10 Fiber Optic Probe Connections](https://github.com/Putnam-Lab/Lab_Management/blob/master/images/oxy10_fiberopticprobes.png?raw=true)
+1. Remove the red caps on the FireSting Oxygen ports and place them in a bag and in the Pyroscience suitcase.  
+2. Remove the caps on the oxygen probes you are going to use and place each cap in its bag. 
+
 
 <a name="Calibrate"></a> **Probe Calibration**
 
-
-1.  In the Sensors tab, select "New".
-2.  Type in the name for your sensor (Ex. OXY_CH1) and select the probe type listed on your probe description sheet (Ex. PSt7_10)
-3. Fill in the information as provided by the data sheet for the specific sensor you're calibrating.
-4. Only use the information in the gray boxes for Phase Signal and Temperature.
-5. Be sure to select the correct units for Temperature (Celcius) and Oxygen (umol/L or your preferrered units).
-6. Note the User Signal Intensity: this value may be 0 or 1 depending on the specific sensor.
-7. Batch ID breaks down into 4 number groups: first two digits are the Year, second two digits are the Month, third two digits are the Day, and the three digits after the dash are the Sequence.
-8. Leave Lot Nr blank.
-9.    Select the appropriate OXY_CH# probe and Channel #, then click “Assign to” to link the coupled O2 and Temp probes to each Channel.
-
-##To manually calibrate the probes for 100% saturated and 0% O2, follow page 13 - 18 in the detailed [PreSens Oxygen Calibration Protocol](https://www.presens.de/index.php?eID=dumpFile&t=f&f=1082&token=26a98c0985a772ed2db5c7801adf8ff454c29979)
-
-
-
-## Temperature sensor installation
-
-1. Line up red dots on the cable and the port
-1. Make sure to slide into the port straight
-	- Be careful when inserting, never force it. If inserting correctly, the ports will align without resistance.
-
-![Oxy10 Temperature Probe Connections](https://github.com/Putnam-Lab/Lab_Management/blob/master/images/oxy10_tempprobes.png?raw=true)
-
-
-## When Software Opens
-
-1.    Check side of screen for device name text indicating the device is connected:
-```
-OXY-10 ST, 02
-SABD0000000001
-```
-2.    Click on device name and it will open the following screen
-
-![Oxy10 Instrument Setup](https://github.com/Putnam-Lab/Lab_Management/blob/master/images/oxy10_setinstrument.png?raw=true)  
-
-## Setting up channels
-
-Each Channel will run an individual sensor. Each Channel requires the following 3 things to be set:
-1. Measurement
-2. Sensor
-3. User
-4. Running the program
-
-#### 1. How to make a new Measurement:
-
-Note: Before beginning your measurements, you must calculate the appropriate Oxygen Saturation Point for your samples collected.
-
-1.		 Open the PreSens program on your computer
-2.	 On the left sidebar, select "OXY-10 ST, O2" (The 10 available channels should show up in a drop down on the sidebar).
-3.   Click `Measurements` on the top tool bar
-4.    Then click `New`
-		- If you are using all 10 sets of O2 and Temp, you will need to create and title 10 measurements per recording run.  Give unique, descriptive names to help manage and organize your data.
-5.    Assign a new name and click `Save`
-6.		 Once all your new measurements are created, you need to assign them to each channel on the Oxy-10.  Click on the measurement title you created for Channel 1, select Channel 1 on the sidebar, then click `Assign to` to link the channel with your new measurement data file.  Do this for all 10 channels with your 10 unique measurement files.
-7.   When you click each Channel on the sidebar, the "Measurement" description should now show your assigned data file name, and "Sensor" should show the appropriate corresponding O2 and Temp probes (Ex. Channel 1 should show "Sensor: OXY_CH1"). If any Channels do not have the correct probe number assigned, you must recalibrate the sensor using the provided detail sheet from the probe and by following the Probe Calibration steps, detailed below.
-
-#### 2. How to change a sensor:
-
-![Oxy10 Adding sensors](https://github.com/Putnam-Lab/Lab_Management/blob/master/images/oxy10_addsensor.png?raw=true)  
-
-1.   Locate the correct calibration information to the specific sensor
-2.    Click `Sensors` on the tool bar
-3.    Then click `New`
-4.   Fill out the correct calibration information as on the sheet
-  - **Sensor Name**: OXY_CHX, where x = channel name
-	- **Sensor type**: Pst7-10
-	- **Batch ID**: Found on the barcode and under Batch number at the top of the calibration sheet
-	- **Lot Nr**: Leave this empty
-	- Calibration Data
-	- **pATM**: Atmospheric Pressure from calibration sheet
-	- **pATM Unit**: hPA
-	- **Mode**: Humid
-	- **Cal0**
-	- **T0**
-	- **Cal2nd**
-	- **T2nd**
-	- **O2-Cal2nd**: Add the value of oxygen solubility for the temperature and salinity of the water you are using (e.g., 203.2 µmol L-1 for 36 ppt at 27°C) - Measure seawater temperature and salinity prior to setting this and input those values.
-	- **Oxygen unit**: μmol/L
-	- Sensor Constants
-	- **f1**: fill with value on calibration sheet
-	- **dPhi1**: fill with value on calibration sheet
-	- **dKSV1**: fill with value on calibration sheet
-	- **m**: fill with value on calibration sheet
-	- **dPhi2**: fill with value on calibration sheet
-	- **dKSV2**: fill with value on calibration sheet
-5.    Click `Save`
-	-    Make sure the new sensor is highlighted and click the desired channel you want to pair with
-6. Click `Assign`
-	-    Your new `Sensor` should be paired with the desired channel
-
-#### 3. How to set a user
-1.   Click `Users` on the tool bar
-2.    Choose default user with default parameters
-
-<a name="Run_Program_Export_Data"></a> **Running the Program and Exporting Data**
-
-#### Running the program:
-Ensure the channel has a measurement, sensor, and user (default)
-
-1.    Click on the channel and click `Live View`
-2.    Make sure to change:
-    	- Units to **μmol/L**
-		- Set Salinity to the value of the seawater you are measuring  (e.g. 36%)
-3.    Then click `Start` on each subsequent channel
-4.   Sensors will record every 1 second until you stop the program.
-5.    To stop recording, click on the same first Channel you selected when starting, and in the Live View tab, click `Stop`. Select each subsequent Channel and click `Stop` until all Channels have stopped recording.
-
-![Oxy10 Channel Setup](https://raw.githubusercontent.com/Putnam-Lab/Lab_Management/master/images/oxy10_channelsetup.JPG)  
-
-![Oxy10 Data Traces](https://raw.githubusercontent.com/Putnam-Lab/Lab_Management/master/images/oxy10_datatraces.JPG)  
-
-#### Exporting data:
-
-1.	In the Measurements tab, select all data files that were just used to record data by holding Ctrl and clicking each file, then click “Export”.
-2.	 For your first data file, select the file type as "CSV" then select a target location to store your exported file by clicking the “…” to the right of the Target field.  Click "Save".  Repeat for all subsequent files.
-3.	 Once all files have been assigned to a target storage location (all lights next ot the file names will change from red to green as the corresponding file has been assigned), click "Export".  Once the export has finished, click "OK".
-4. 	When files are downloaded, make sure to open a few of them to see that there is full data throughout the allotted time, there is consistency in the column names, etc. Sometimes files get distorted or download incorrectly so checking here you can resolve the issue by re-downloading them from PreSens.
-5.  Save files from each run to Google Drive, or a flash drive, or both to make sure that if any files are lost from PreSens or on the computer you have a secure backup!
-
+1. Calibrate the temperature (Pt100) and oxygen sensors [Use the Pyro Workbench & Data Inspector manual] (https://github.com/talimass/Talimass_Lab_Notebook_Mass_Lab/blob/master/Files/Manual%20Pyro%20Workbench.pdf)   and measure water salinity:
+2. Calibrate the Pt100 temperature sensor first [use the Optical Temperature Sensors Manual] (https://github.com/talimass/Talimass_Lab_Notebook_Mass_Lab/blob/master/Files/Manual_Optical_Temperature_Sensors%20(1).pdf)  
+3. Calibrate the oxygen sensors [use the oxygen sensors manual] (https://github.com/talimass/Talimass_Lab_Notebook_Mass_Lab/blob/master/Files/Manual_FSO2-C.pdf)     
+4. 2-point calibration (optional): upper and 0% calibration; recommended for measurements at low O2 and high accuracy measurements over the full range. 
+5. For seawater saturated with air, insert an air pump into a glass with 600ml seawater and let it bubble for 10 minutes. Insert the oxygen and temperature sensor into the glass and ensure that the sensor tips are immersed in the water and are free of air bubbles then measure it and let it stable. 
+For de-oxygenated water Fill 50ml of demineralized water (DO NOT USE SEAWATER FOR THIS CALIBRATION) into a glass flask (e.g. Duran flask)
 
 
 
@@ -407,31 +311,7 @@ If using the respirometer at more than one temperature (i.e. Thermal Performance
 
 <a name="Troubleshooting"></a> **Troubleshooting**
 
-**If PreSens Measurement Studio 2 crashes after plugging in the Oy10, or PreSens shows this error message after plugging in the Oxy10 first: "Error while loading the sensors.  The application will now terminate."**  
-- First, Shut down the program and reload it.
-- If that doesn't work, shut down the computer and reboot, then open the program.
-- If a connection still cannot be made, update the PreSens Measurement 2 software [here](https://www.presens.de/support-services/download-center/software.html)
-- Uninstall the PreSens Software from your computer (once reinstalled, you will likely have to recalibrate the O2 probes)
-- On the webpage, under O~2~, click the topmost link
-- Login (or Register, if you prefer your own user login)
-- The download should begin automatically, and once it's loaded, open the file and run through the guided download steps
-- Open PreSens on your computer and plug in the Oxy10. The sensors should now display on the left sidebar
-- Follow steps for [Probe Calibration](#Calibrate)
 
-**If probe readings seem incorrect**  
-- Basic test of the Temperature probes
-- Make a dummy Measurement file and assign it to the probe you want to check
-- Run the channel assigned to that probe
-- Hold the probe tip and watch the measurement curve.  The curve should begin leveling off at your body temp (can note a change in the curve either up or down depending on your environment's temperature relative to your body to verify the probe is not malfunctioning)
-- If the reading still seems off, disconnect and reconnect the probe, and try the above steps again
-- To check accuracy of the readings, place the probe in a beaker of water and use a secondary thermometer to check the probe's readings against the thermometer's
-- If the reading still seems off, check the probe tip and wire for any tears and deep scratches.  If any are present, the probe may be damaged and need replacing
-- Basic test the O~2~ probes
-- Make a dummy Measurement file and assign it to the probe you want to check
-- Run the channel assigned to that probe
-- Breath out close to the probe tip and watch the measurement curve.  The curve should begin dropping, indicating a drop in Oxygen
-- If the reading still seems off, disconnect and reconnect the probe, and try the above steps again
-- If the reading still seems off, check the probe tip and wire for any tears, crimps, and deep scratches.  If any are present, the probe may be damaged and need replacing
 
 **Disconnected battery wire**
 
@@ -469,8 +349,5 @@ Replace and tighten bolts
 
 
 <a name="references"></a> **References**  
-* [Oxygen Dipping Probe DP-PSt7 specifications](https://www.presens.de/products/detail/oxygen-dipping-probe-dp-pst7)
-* [Pt100 Temperature Sensor specifications](https://www.presens.de/products/detail/pt100-temperature-sensor)
-* [Specification Brochure](#Images/Presens_O2_and_Temp_specs)
-* [Oxygen Optical Sensors and Meters Brochure](https://www.presens.de/fileadmin/user_upload/brochures/190731_cawe_Presens_O2_Broschuere_07-19_dv3_web.pdf)
-* [Silbiger Lab Protocol](https://github.com/SilbigerLab/Protocols/tree/master/Physiological_Parameter_Protocols/Protocols/Respirometry_Protocol)
+* * [Putnam Lab Protocol] (https://github.com/Putnam-Lab/Lab_Management/blob/master/Lab_Resources/Equipment_Protocols/Respirometry_Protocol/Respirometry_Manual.md)  
+* * [Silbiger Lab Protocol](https://github.com/SilbigerLab/Protocols/tree/master/Physiological_Parameter_Protocols/Protocols/Respirometry_Protocol)
