@@ -1,0 +1,728 @@
+---
+title: "pi_curves_nls"
+author: "Ariana S Huffmyer"
+date: "3/18/2021"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE, message = FALSE, warning = FALSE)
+```
+
+```{r load_packages}
+#Read in required libraries
+library("devtools")
+library("ggplot2")
+library("segmented")
+library("plotrix")
+library("gridExtra")
+library("lubridate")
+library("chron")
+library("plyr")
+library("dplyr")
+library("tidyr")
+library("tidyverse")
+library("broom")
+library("ggpubr")
+library("minpack.lm")
+library("ggpmisc")
+
+```
+
+Load metadata
+```{r}
+sample.info <- read.csv("RAnalysis/data/Spat_Info.csv", na.strings = "NA")
+sample.info$Size.mm2 <- as.numeric(as.character(sample.info$Size.mm2))
+
+#Plot Size as a function of Polyp Number
+ggplot(data = sample.info, aes(x = Polyp.Number, y = Size.mm2)) +
+  stat_poly_line() +
+  stat_poly_eq(use_label(c("eq", "R2","P")), size = 4) +
+  geom_point() +
+  theme_classic()
+```
+
+PLATE1
+# Import data
+```{r import_data}
+Data <-read.csv("/Users/hputnam/Downloads/plate_4_ASF.csv", header=T, sep=";", na.string="NA") #reads in the data files
+Data <- Data[, c("Date", "Time", "PAR", "ETR1","ETR2","ETR3","ETR4")]
+# change format from wide to long
+Data <- Data %>%  pivot_longer(., cols = starts_with("ETR"), names_to = "Spat.ID")
+Data$value <- na_if(Data$value, 0)
+#need to Remove all data at PAR values above where ETR hits zero
+Data$PAR <- as.numeric(Data$PAR)
+colnames(Data)[5] ="ETR"
+
+```
+
+
+# View Data plots
+```{r}
+Data <- Data %>%
+  subset(ETR<40)
+
+Data %>%
+ggplot(aes(x=PAR, y=ETR, color=Spat.ID))+
+  geom_point()+
+  geom_line()+
+  facet_wrap("Spat.ID")
+  theme_bw()
+
+```
+
+```{r}
+set.seed(123)
+Data.PI <- Data %>% subset(PAR<900) 
+curve.nlsPIC <- Data.PI %>% nls(ETR ~ (Am*((AQY*PAR)/(sqrt(Am^2 + (AQY*PAR)^2)))-Rd), data=., start=list(Am=0.7,  AQY=0.001, Rd=.4))
+coef(curve.nlsPIC)
+plot(ETR ~ PAR, data = Data.PI)
+lines(0:900,
+      predict(curve.nlsPIC,
+              newdata = data.frame(PAR = 0:900)))
+```
+# Define PI curve function as a nonlinear Least Squares regression of a quadratic fit, test nls fit
+Aquatic Photosynthesis, Falkowski   
+Pmax = max photosynthesis (AKA Am from Bayesian script)  
+alpha = quantum yeild (AKA AQY from Bayesian script)  
+I/E = irradiance (AKA PAR from Bayesian script)  
+Rd = dark respiration   
+
+Using fixed initial values (keeping for reference):  
+```{r}
+
+# Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR13"))
+# Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR16"))
+# Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR19"))
+# Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR2"))
+# Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR7"))
+# Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR1"))
+
+nls_data1 <- Data.PI %>%
+group_by(Spat.ID) %>%
+nest(-Spat.ID) %>%
+mutate(model1 = map(data, ~
+nls(ETR ~ (Am*((AQY*PAR)/(sqrt(Am^2 + (AQY*PAR)^2)))-Rd), data=., start=list(Am=0.7,  AQY=0.001, Rd=.4)) %>%
+tidy %>%
+dplyr::select(term, estimate) %>%
+spread(term, estimate))) %>%
+unnest(model1) %>%
+mutate(Ik = Am/AQY)%>%
+mutate(Date = "20230505") %>%
+mutate(Plate = "Plate1") %>%
+mutate(Spat.ID.PAM = paste0(Date,"_",Plate,"_",Spat.ID)) #%>%
+#write_csv(., "RAnalysis/output/Plate1_pi_curve_pars_NLS_fixedparms.csv")
+```
+
+Plot curve over data points.  
+```{r}
+augmented <- Data.PI %>%
+  filter(PAR <900) %>%
+  nest(-Spat.ID) %>% 
+  mutate(
+    fit = map(data, ~ nls(ETR ~ (Am*((AQY*PAR)/(sqrt(Am^2 + (AQY*PAR)^2)))-Rd), data=., start=list(Am=0.7,  AQY=0.001, Rd=.4))),
+    augmented = map(fit, augment),
+  ) %>% 
+  unnest(augmented)
+
+augmented$ID <-augmented$Spat.ID
+Aug <- augmented %>% separate(ID, c("Sp", "Num", "Type"))
+
+#all colonies together
+pdf("RAnalysis/output/Plate1_PI_Curve_Fit_Plots.pdf")
+PI.curves <- Aug %>%
+ggplot(aes(x=PAR, y=ETR, color=Spat.ID))+
+  geom_point() + 
+  geom_line(aes(y=.fitted, x=PAR,group=Spat.ID))+
+  theme_classic()+
+          labs(x = expression(paste('PAR (', mu, "mol photons m"^-2, 's'^-1,")")),
+               y = expression(paste("ETR")))+
+  theme(legend.position = "top")
+PI.curves
+dev.off()
+
+```
+#PLATE 2
+
+# Import data
+```{r import_data}
+Data <-read.csv("RAnalysis/data/ImagingPam/20230505_Spat_Plate2_newpoi.csv", header=T, sep=";", na.string="NA") #reads in the data files
+Data <- Data[, c("Date", "Time", "PAR", "ETR1","ETR2","ETR3","ETR4","ETR5","ETR6","ETR7","ETR8","ETR9","ETR10","ETR11",
+      "ETR12","ETR13","ETR14","ETR15","ETR16","ETR17","ETR18",
+      "ETR19","ETR20","ETR21","ETR22")]
+# change format from wide to long
+Data <- Data %>%  pivot_longer(., cols = starts_with("ETR"), names_to = "Spat.ID")
+Data$value <- na_if(Data$value, 0)
+#need to Remove all data at PAR values above where ETR hits zero
+Data$PAR <- as.numeric(Data$PAR)
+colnames(Data)[5] ="ETR"
+
+```
+
+
+# View Data plots
+```{r}
+Data %>%
+ggplot(aes(x=PAR, y=ETR, color=Spat.ID))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r}
+set.seed(123)
+Data.PI  <- Data %>% subset(PAR<900) 
+curve.nlsPIC <- Data.PI %>% nls(ETR ~ (Am*((AQY*PAR)/(sqrt(Am^2 + (AQY*PAR)^2)))-Rd), data=., start=list(Am=0.7,  AQY=0.001, Rd=.4))
+coef(curve.nlsPIC)
+plot(ETR ~ PAR, data = Data.PI)
+lines(0:900,
+      predict(curve.nlsPIC,
+              newdata = data.frame(PAR = 0:900)))
+```
+# Define PI curve function as a nonlinear Least Squares regression of a quadratic fit, test nls fit
+Aquatic Photosynthesis, Falkowski   
+Pmax = max photosynthesis (AKA Am from Bayesian script)  
+alpha = quantum yeild (AKA AQY from Bayesian script)  
+I/E = irradiance (AKA PAR from Bayesian script)  
+Rd = dark respiration   
+
+Using fixed initial values  
+```{r}
+
+Data.PI <- Data.PI %>% subset(Spat.ID!="ETR12")
+Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR13"))
+Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR18"))
+Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR19"))
+Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR6"))
+Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR7"))
+Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR9"))
+#Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR18"))
+#Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR19"))
+
+nls_data2 <- Data.PI %>%
+group_by(Spat.ID) %>%
+nest(-Spat.ID) %>%
+mutate(model1 = map(data, ~
+nls(ETR ~ (Am*((AQY*PAR)/(sqrt(Am^2 + (AQY*PAR)^2)))-Rd), data=., start=list(Am=0.7,  AQY=0.001, Rd=.4)) %>%
+tidy %>%
+dplyr::select(term, estimate) %>%
+spread(term, estimate))) %>%
+unnest(model1) %>%
+mutate(Ik = Am/AQY)%>%
+mutate(Date = "20230505") %>%
+mutate(Plate = "Plate2") %>%
+mutate(Spat.ID.PAM = paste0(Date,"_",Plate,"_",Spat.ID)) %>%
+write_csv(., "RAnalysis/output/Plate2_pi_curve_pars_NLS_fixedparms.csv")
+```
+
+Plot curve over data points.  
+```{r}
+augmented <- Data.PI %>%
+  filter(PAR <900) %>%
+  nest(-Spat.ID) %>% 
+  mutate(
+    fit = map(data, ~ nls(ETR ~ (Am*((AQY*PAR)/(sqrt(Am^2 + (AQY*PAR)^2)))-Rd), data=., start=list(Am=0.7,  AQY=0.001, Rd=.4))),
+    augmented = map(fit, augment),
+  ) %>% 
+  unnest(augmented)
+
+augmented$ID <-augmented$Spat.ID
+Aug <- augmented %>% separate(ID, c("Sp", "Num", "Type"))
+
+#all colonies together
+pdf("RAnalysis/output/Plate2_PI_Curve_Fit_Plots.pdf")
+PI.curves <- Aug %>%
+ggplot(aes(x=PAR, y=ETR, color=Spat.ID))+
+  geom_point() + 
+  geom_line(aes(y=.fitted, x=PAR,group=Spat.ID))+
+  theme_classic()+
+          labs(x = expression(paste('PAR (', mu, "mol photons m"^-2, 's'^-1,")")),
+               y = expression(paste("ETR")))+
+  theme(legend.position = "top")
+PI.curves
+dev.off()
+
+```
+
+#PLATE 3
+
+# Import data
+```{r import_data}
+Data <-read.csv("RAnalysis/data/ImagingPam/20230510_Spat_Plate3.csv", header=T, sep=";", na.string="NA") #reads in the data files
+Data <- Data[, c("Date", "Time", "PAR", "ETR1","ETR2","ETR3","ETR4","ETR5","ETR6","ETR7","ETR8","ETR9","ETR10","ETR11",
+      "ETR12","ETR13","ETR14","ETR15","ETR16","ETR17","ETR18",
+      "ETR19","ETR20","ETR21","ETR22")]
+# change format from wide to long
+Data <- Data %>%  pivot_longer(., cols = starts_with("ETR"), names_to = "Spat.ID")
+Data$value <- na_if(Data$value, 0)
+#need to Remove all data at PAR values above where ETR hits zero
+Data$PAR <- as.numeric(Data$PAR)
+colnames(Data)[5] ="ETR"
+
+```
+
+
+# View Data plots
+```{r}
+Data %>%
+ggplot(aes(x=PAR, y=ETR, color=Spat.ID))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r}
+set.seed(123)
+Data.PI  <- Data %>% subset(PAR<900) 
+curve.nlsPIC <- Data.PI %>% nls(ETR ~ (Am*((AQY*PAR)/(sqrt(Am^2 + (AQY*PAR)^2)))-Rd), data=., start=list(Am=0.7,  AQY=0.001, Rd=.4))
+coef(curve.nlsPIC)
+plot(ETR ~ PAR, data = Data.PI)
+lines(0:900,
+      predict(curve.nlsPIC,
+              newdata = data.frame(PAR = 0:900)))
+```
+# Define PI curve function as a nonlinear Least Squares regression of a quadratic fit, test nls fit
+Aquatic Photosynthesis, Falkowski   
+Pmax = max photosynthesis (AKA Am from Bayesian script)  
+alpha = quantum yeild (AKA AQY from Bayesian script)  
+I/E = irradiance (AKA PAR from Bayesian script)  
+Rd = dark respiration   
+
+Using fixed initial values  
+```{r}
+
+Data.PI <- Data.PI %>% subset(Spat.ID!="ETR1")
+Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR14"))
+Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR17"))
+Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR19"))
+Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR4"))
+Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR6"))
+#Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR9"))
+#Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR18"))
+#Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR19"))
+
+nls_data3 <- Data.PI %>%
+group_by(Spat.ID) %>%
+nest(-Spat.ID) %>%
+mutate(model1 = map(data, ~
+nls(ETR ~ (Am*((AQY*PAR)/(sqrt(Am^2 + (AQY*PAR)^2)))-Rd), data=., start=list(Am=0.7,  AQY=0.001, Rd=.4)) %>%
+tidy %>%
+dplyr::select(term, estimate) %>%
+spread(term, estimate))) %>%
+unnest(model1) %>%
+mutate(Ik = Am/AQY)%>%
+mutate(Date = "20230510") %>%
+mutate(Plate = "Plate3") %>%
+mutate(Spat.ID.PAM = paste0(Date,"_",Plate,"_",Spat.ID)) %>%
+write_csv(., "RAnalysis/output/Plate3_pi_curve_pars_NLS_fixedparms.csv")
+```
+
+Plot curve over data points.  
+```{r}
+augmented <- Data.PI %>%
+  filter(PAR <900) %>%
+  nest(-Spat.ID) %>% 
+  mutate(
+    fit = map(data, ~ nls(ETR ~ (Am*((AQY*PAR)/(sqrt(Am^2 + (AQY*PAR)^2)))-Rd), data=., start=list(Am=0.7,  AQY=0.001, Rd=.4))),
+    augmented = map(fit, augment),
+  ) %>% 
+  unnest(augmented)
+
+augmented$ID <-augmented$Spat.ID
+Aug <- augmented %>% separate(ID, c("Sp", "Num", "Type"))
+
+#all colonies together
+pdf("RAnalysis/output/Plate3_PI_Curve_Fit_Plots.pdf")
+PI.curves <- Aug %>%
+ggplot(aes(x=PAR, y=ETR, color=Spat.ID))+
+  geom_point() + 
+  geom_line(aes(y=.fitted, x=PAR,group=Spat.ID))+
+  theme_classic()+
+          labs(x = expression(paste('PAR (', mu, "mol photons m"^-2, 's'^-1,")")),
+               y = expression(paste("ETR")))+
+  theme(legend.position = "top")
+PI.curves
+dev.off()
+
+```
+
+
+#PLATE 4
+
+# Import data
+```{r import_data}
+Data <-read.csv("RAnalysis/data/ImagingPam/20230510_Spat_Plate4.csv", header=T, sep=";", na.string="NA") #reads in the data files
+Data <- Data[, c("Date", "Time", "PAR", "ETR1","ETR2","ETR3","ETR4","ETR5","ETR6","ETR7","ETR8","ETR9","ETR10","ETR11",
+      "ETR12","ETR13","ETR14","ETR15","ETR16","ETR17","ETR18",
+      "ETR19","ETR20","ETR21","ETR22")]
+# change format from wide to long
+Data <- Data %>%  pivot_longer(., cols = starts_with("ETR"), names_to = "Spat.ID")
+Data$value <- na_if(Data$value, 0)
+#need to Remove all data at PAR values above where ETR hits zero
+Data$PAR <- as.numeric(Data$PAR)
+colnames(Data)[5] ="ETR"
+
+```
+
+
+# View Data plots
+```{r}
+Data %>%
+ggplot(aes(x=PAR, y=ETR, color=Spat.ID))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r}
+set.seed(123)
+Data.PI  <- Data %>% subset(PAR<900) 
+curve.nlsPIC <- Data.PI %>% nls(ETR ~ (Am*((AQY*PAR)/(sqrt(Am^2 + (AQY*PAR)^2)))-Rd), data=., start=list(Am=0.7,  AQY=0.001, Rd=.4))
+coef(curve.nlsPIC)
+plot(ETR ~ PAR, data = Data.PI)
+lines(0:900,
+      predict(curve.nlsPIC,
+              newdata = data.frame(PAR = 0:900)))
+```
+# Define PI curve function as a nonlinear Least Squares regression of a quadratic fit, test nls fit
+Aquatic Photosynthesis, Falkowski   
+Pmax = max photosynthesis (AKA Am from Bayesian script)  
+alpha = quantum yeild (AKA AQY from Bayesian script)  
+I/E = irradiance (AKA PAR from Bayesian script)  
+Rd = dark respiration   
+
+Using fixed initial values  
+```{r}
+
+Data.PI <- Data.PI %>% subset(Spat.ID!="ETR19")
+Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR2"))
+Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR20"))
+Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR7"))
+#Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR4"))
+#Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR6"))
+#Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR9"))
+#Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR18"))
+#Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR19"))
+
+nls_data4 <- Data.PI %>%
+group_by(Spat.ID) %>%
+nest(-Spat.ID) %>%
+mutate(model1 = map(data, ~
+nls(ETR ~ (Am*((AQY*PAR)/(sqrt(Am^2 + (AQY*PAR)^2)))-Rd), data=., start=list(Am=0.7,  AQY=0.001, Rd=.4)) %>%
+tidy %>%
+dplyr::select(term, estimate) %>%
+spread(term, estimate))) %>%
+unnest(model1) %>%
+mutate(Ik = Am/AQY)%>%
+mutate(Date = "20230510") %>%
+mutate(Plate = "Plate4") %>%
+mutate(Spat.ID.PAM = paste0(Date,"_",Plate,"_",Spat.ID)) %>%
+write_csv(., "RAnalysis/output/Plate4_pi_curve_pars_NLS_fixedparms.csv")
+```
+
+Plot curve over data points.  
+```{r}
+augmented <- Data.PI %>%
+  filter(PAR <900) %>%
+  nest(-Spat.ID) %>% 
+  mutate(
+    fit = map(data, ~ nls(ETR ~ (Am*((AQY*PAR)/(sqrt(Am^2 + (AQY*PAR)^2)))-Rd), data=., start=list(Am=0.7,  AQY=0.001, Rd=.4))),
+    augmented = map(fit, augment),
+  ) %>% 
+  unnest(augmented)
+
+augmented$ID <-augmented$Spat.ID
+Aug <- augmented %>% separate(ID, c("Sp", "Num", "Type"))
+
+#all colonies together
+pdf("RAnalysis/output/Plate4_PI_Curve_Fit_Plots.pdf")
+PI.curves <- Aug %>%
+ggplot(aes(x=PAR, y=ETR, color=Spat.ID))+
+  geom_point() + 
+  geom_line(aes(y=.fitted, x=PAR,group=Spat.ID))+
+  theme_classic()+
+          labs(x = expression(paste('PAR (', mu, "mol photons m"^-2, 's'^-1,")")),
+               y = expression(paste("ETR")))+
+  theme(legend.position = "top")
+PI.curves
+dev.off()
+
+```
+
+
+#PLATE 5
+
+# Import data
+```{r import_data}
+Data <-read.csv("RAnalysis/data/ImagingPam/20230510_Spat_Plate5.csv", header=T, sep=";", na.string="NA") #reads in the data files
+Data <- Data[, c("Date", "Time", "PAR", "ETR1","ETR2","ETR3","ETR4","ETR5","ETR6","ETR7","ETR8","ETR9","ETR10","ETR11",
+      "ETR12","ETR13","ETR14","ETR15","ETR16","ETR17","ETR18",
+      "ETR19","ETR20","ETR21","ETR22")]
+# change format from wide to long
+Data <- Data %>%  pivot_longer(., cols = starts_with("ETR"), names_to = "Spat.ID")
+Data$value <- na_if(Data$value, 0)
+#need to Remove all data at PAR values above where ETR hits zero
+Data$PAR <- as.numeric(Data$PAR)
+colnames(Data)[5] ="ETR"
+
+```
+
+
+# View Data plots
+```{r}
+Data %>%
+ggplot(aes(x=PAR, y=ETR, color=Spat.ID))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r}
+set.seed(123)
+Data.PI  <- Data %>% subset(PAR<900) 
+curve.nlsPIC <- Data.PI %>% nls(ETR ~ (Am*((AQY*PAR)/(sqrt(Am^2 + (AQY*PAR)^2)))-Rd), data=., start=list(Am=0.7,  AQY=0.001, Rd=.4))
+coef(curve.nlsPIC)
+plot(ETR ~ PAR, data = Data.PI)
+lines(0:900,
+      predict(curve.nlsPIC,
+              newdata = data.frame(PAR = 0:900)))
+```
+# Define PI curve function as a nonlinear Least Squares regression of a quadratic fit, test nls fit
+Aquatic Photosynthesis, Falkowski   
+Pmax = max photosynthesis (AKA Am from Bayesian script)  
+alpha = quantum yeild (AKA AQY from Bayesian script)  
+I/E = irradiance (AKA PAR from Bayesian script)  
+Rd = dark respiration   
+
+Using fixed initial values  
+```{r}
+
+Data.PI <- Data.PI %>% subset(Spat.ID!="ETR10")
+Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR16"))
+Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR4"))
+#Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR7"))
+#Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR4"))
+#Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR6"))
+#Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR9"))
+#Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR18"))
+#Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR19"))
+
+nls_data5 <- Data.PI %>%
+group_by(Spat.ID) %>%
+nest(-Spat.ID) %>%
+mutate(model1 = map(data, ~
+nls(ETR ~ (Am*((AQY*PAR)/(sqrt(Am^2 + (AQY*PAR)^2)))-Rd), data=., start=list(Am=0.7,  AQY=0.001, Rd=.4)) %>%
+tidy %>%
+dplyr::select(term, estimate) %>%
+spread(term, estimate))) %>%
+unnest(model1) %>%
+mutate(Ik = Am/AQY)%>%
+mutate(Date = "20230510") %>%
+mutate(Plate = "Plate5") %>%
+mutate(Spat.ID.PAM = paste0(Date,"_",Plate,"_",Spat.ID)) %>%
+write_csv(., "RAnalysis/output/Plate5_pi_curve_pars_NLS_fixedparms.csv")
+```
+
+Plot curve over data points.  
+```{r}
+augmented <- Data.PI %>%
+  filter(PAR <900) %>%
+  nest(-Spat.ID) %>% 
+  mutate(
+    fit = map(data, ~ nls(ETR ~ (Am*((AQY*PAR)/(sqrt(Am^2 + (AQY*PAR)^2)))-Rd), data=., start=list(Am=0.7,  AQY=0.001, Rd=.4))),
+    augmented = map(fit, augment),
+  ) %>% 
+  unnest(augmented)
+
+augmented$ID <-augmented$Spat.ID
+Aug <- augmented %>% separate(ID, c("Sp", "Num", "Type"))
+
+#all colonies together
+pdf("RAnalysis/output/Plate5_PI_Curve_Fit_Plots.pdf")
+PI.curves <- Aug %>%
+ggplot(aes(x=PAR, y=ETR, color=Spat.ID))+
+  geom_point() + 
+  geom_line(aes(y=.fitted, x=PAR,group=Spat.ID))+
+  theme_classic()+
+          labs(x = expression(paste('PAR (', mu, "mol photons m"^-2, 's'^-1,")")),
+               y = expression(paste("ETR")))+
+  theme(legend.position = "top")
+PI.curves
+dev.off()
+
+```
+
+
+#PLATE 6
+
+# Import data
+```{r import_data}
+Data <-read.csv("RAnalysis/data/ImagingPam/20230510_Spat_Plate6.csv", header=T, sep=";", na.string="NA") #reads in the data files
+Data <- Data[, c("Date", "Time", "PAR", "ETR1","ETR2","ETR3","ETR4","ETR5","ETR6","ETR7","ETR8","ETR9","ETR10","ETR11",
+      "ETR12","ETR13","ETR14","ETR15","ETR16","ETR17","ETR18",
+      "ETR19","ETR20","ETR21")]
+# change format from wide to long
+Data <- Data %>%  pivot_longer(., cols = starts_with("ETR"), names_to = "Spat.ID")
+Data$value <- na_if(Data$value, 0)
+#need to Remove all data at PAR values above where ETR hits zero
+Data$PAR <- as.numeric(Data$PAR)
+colnames(Data)[5] ="ETR"
+
+```
+
+
+# View Data plots
+```{r}
+Data %>%
+ggplot(aes(x=PAR, y=ETR, color=Spat.ID))+
+  geom_point()+
+  theme_bw()
+```
+
+```{r}
+set.seed(123)
+Data.PI  <- Data %>% subset(PAR<900) 
+curve.nlsPIC <- Data.PI %>% nls(ETR ~ (Am*((AQY*PAR)/(sqrt(Am^2 + (AQY*PAR)^2)))-Rd), data=., start=list(Am=0.7,  AQY=0.001, Rd=.4))
+coef(curve.nlsPIC)
+plot(ETR ~ PAR, data = Data.PI)
+lines(0:900,
+      predict(curve.nlsPIC,
+              newdata = data.frame(PAR = 0:900)))
+```
+# Define PI curve function as a nonlinear Least Squares regression of a quadratic fit, test nls fit
+Aquatic Photosynthesis, Falkowski   
+Pmax = max photosynthesis (AKA Am from Bayesian script)  
+alpha = quantum yeild (AKA AQY from Bayesian script)  
+I/E = irradiance (AKA PAR from Bayesian script)  
+Rd = dark respiration   
+
+Using fixed initial values  
+```{r}
+
+Data.PI <- Data.PI %>% subset(Spat.ID!="ETR12")
+Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR18"))
+Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR21"))
+Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR3"))
+#Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR4"))
+#Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR6"))
+#Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR9"))
+#Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR18"))
+#Data.PI <- Data.PI %>% subset(Spat.ID!=("ETR19"))
+
+nls_data6 <- Data.PI %>%
+group_by(Spat.ID) %>%
+nest(-Spat.ID) %>%
+mutate(model1 = map(data, ~
+nls(ETR ~ (Am*((AQY*PAR)/(sqrt(Am^2 + (AQY*PAR)^2)))-Rd), data=., start=list(Am=0.7,  AQY=0.001, Rd=.4)) %>%
+tidy %>%
+dplyr::select(term, estimate) %>%
+spread(term, estimate))) %>%
+unnest(model1) %>%
+mutate(Ik = Am/AQY)%>%
+mutate(Date = "20230510") %>%
+mutate(Plate = "Plate6") %>%
+mutate(Spat.ID.PAM = paste0(Date,"_",Plate,"_",Spat.ID)) %>%
+write_csv(., "RAnalysis/output/Plate6_pi_curve_pars_NLS_fixedparms.csv")
+```
+
+Plot curve over data points.  
+```{r}
+augmented <- Data.PI %>%
+  filter(PAR <900) %>%
+  nest(-Spat.ID) %>% 
+  mutate(
+    fit = map(data, ~ nls(ETR ~ (Am*((AQY*PAR)/(sqrt(Am^2 + (AQY*PAR)^2)))-Rd), data=., start=list(Am=0.7,  AQY=0.001, Rd=.4))),
+    augmented = map(fit, augment),
+  ) %>% 
+  unnest(augmented)
+
+augmented$ID <-augmented$Spat.ID
+Aug <- augmented %>% separate(ID, c("Sp", "Num", "Type"))
+
+#all colonies together
+pdf("RAnalysis/output/Plate6_PI_Curve_Fit_Plots.pdf")
+PI.curves <- Aug %>%
+ggplot(aes(x=PAR, y=ETR, color=Spat.ID))+
+  geom_point() + 
+  geom_line(aes(y=.fitted, x=PAR,group=Spat.ID))+
+  theme_classic()+
+          labs(x = expression(paste('PAR (', mu, "mol photons m"^-2, 's'^-1,")")),
+               y = expression(paste("ETR")))+
+  theme(legend.position = "top")
+PI.curves
+dev.off()
+
+```
+
+
+
+
+
+
+
+```{r}
+PI.params <- rbind(nls_data1, nls_data2, nls_data3, nls_data4, nls_data5, nls_data6)
+
+PI.params <- PI.params[,-2]
+
+# change format from wide to long
+PI.params <- PI.params %>%  pivot_longer(., cols = Am:Ik, names_to = "metric", values_to = "value")
+
+PI.params <- PI.params %>% subset(metric!="Rd")
+
+PI.params$Spat.ID.PAM <- paste0(PI.params$Date, "_", PI.params$Plate, "_", PI.params$Spat.ID) 
+PI.params <- left_join(PI.params, sample.info, by="Spat.ID.PAM")
+
+PI.params <- PI.params %>%
+  subset(Type!="Algae")
+  
+ggplot(data = PI.params, aes(x = Size.mm2, y = value)) +
+  geom_point() +
+  facet_wrap(~metric, scales = "free_y")
+```
+
+Remove Outliers
+```{r}
+Am <- PI.params %>%
+  subset(metric=="Am") %>%
+  subset(value<80) %>%
+  subset(Size.mm2<6)
+
+AQY <- PI.params %>%
+  subset(metric=="AQY") %>%
+  subset(Size.mm2<6)
+
+Ik <- PI.params %>%
+  subset(metric=="Ik") %>%
+  subset(value<250) %>%
+  subset(Size.mm2<6)
+
+PI.params <- rbind(Am,AQY,Ik)
+
+ggplot(data = PI.params, aes(x = Size.mm2, y = value)) +
+  geom_point() +
+  facet_wrap(~metric, scales = "free_y")
+
+write_csv(PI.params, "RAnalysis/output/PI.params.csv")
+
+```
+
+Plot metrics as a function of Spat Area
+```{r}
+
+ggplot(data = PI.params, aes(x = Size.mm2, y = value)) +
+  geom_point() +
+  stat_poly_line() +
+  stat_poly_eq(use_label(c("eq", "R2","P")), size = 2.5) +
+  facet_wrap(~metric, scales = "free_y") +
+  theme_classic()
+
+```
+
+Plot metrics as a function of Polyp Number
+```{r}
+ggplot(data = PI.params, aes(x = Polyp.Number, y = value)) +
+  stat_poly_line() +
+  stat_poly_eq(use_label(c("eq", "R2","P")), size = 2.5) +
+  geom_point() +
+  facet_wrap(~metric, scales = "free_y")+
+  theme_classic()
+```
