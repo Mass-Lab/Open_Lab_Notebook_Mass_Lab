@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Forking the Putnam Open Lab Notebook for Your GitHub"
+title: "Forking the Mass Open Lab Notebook for Your GitHub"
 author: Maggie Schedl
 ---
 
