@@ -23,7 +23,7 @@ Add the follow to 1l of deionized H2O and filter with 0.2µm keep stock in 4C an
 
 ### DMEM culture medium
 
-Add to DMEM no glucose (https://www.thermofisher.com/il/en/home/technical-resources/media-formulation.49.html) the follow
+Add to [DMEM no glucose] (https://www.thermofisher.com/il/en/home/technical-resources/media-formulation.49.html) the follow
 
 |chemical|gram|comment|
 |NaCl|9.05g|
