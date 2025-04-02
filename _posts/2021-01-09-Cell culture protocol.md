@@ -12,28 +12,31 @@ and [antibiotic-antimycotics](https://www.sigmaaldrich.com/catalog/product/sigma
 
 Add the follow to 1l of deionized H2O and filter with 0.2µm keep stock in 4C and worm to 25C before using
 
-|chemical|gram|
-|NaCl|23g|
-|KCL|0.763g|
-|MgSO4-7H2O|1.89g |
-|MgCl2-6H2O|10.45g |
-|Na2SO4|3g|
-|NaHCO3|0.25g|
-|SrCl2|0.026g|
+| chemical  comment | gram    |
+|-------------------|---------|
+| NaCl              | 23g     |
+| KCL               | 0.763g  |
+| MgSO4-7H2O        | 1.89g   |
+| MgCl2-6H2O        | 10.45g  |
+| Na2SO4            | 3g      |
+| NaHCO3            | 0.25g   |
+| SrCl2             | 0.026g  |
 
 ### DMEM culture medium
 
-Add to DMEM no glucose (https://www.thermofisher.com/il/en/home/technical-resources/media-formulation.49.html) the follow
+Add to [DMEM no glucose] (https://www.thermofisher.com/il/en/home/technical-resources/media-formulation.49.html) the follow   
 
-|chemical|gram|comment|
-|NaCl|9.05g|
-|KCL|0.7g|
-|CaCl2 2 H2O|0.71g|
-|MgCl2-6H2O|5.1gg |
-|Na2SO4|0.5g|
-|taurine|0.5ml|from stock 1.04µg/20ml DDW|
-|NaOH3-|1.85g|only if necessary, if the DMEM bought is without NaOH3|
-|Hepes|2.98g|
+| chemical  comment | gram  | comment                                                |
+|-------------------|-------|--------------------------------------------------------|
+| NaCl              | 9.05g |                                                        |
+| KCL               | 0.7g  |                                                        |
+| CaCl2 -2H2O       | 0.71g |                                                        |
+| MgCl2-6H2O        | 5.1g  |                                                        |
+| Na2SO4            | 0.5g  |                                                        |
+| taurine           | 0.5m  | from stock 1.04µg/20ml DDW                             |
+| NaOH3-            | 1.85g | only if necessary, if the DMEM bought is without NaOH3 |
+| Hepes             | 2.98g |                                                        | 
+
 Keep stock in -20C
 
 ### Working solution
