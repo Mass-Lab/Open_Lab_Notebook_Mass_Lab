@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Sample prep fixation embedding and polishing protocol follow Mass et al 2017 PNAS
-category: [ Fixation, Microscopy, spectroscopy ]
-tags: [ Coral, microscopy ]
+title: qPCR homwork research method 
+category: [ ]
+tags: [  ]
 ---
 Calculate ΔCt (Delta Ct):  
 Δ𝐶𝑡=𝐶𝑡target−𝐶𝑡reference  
@@ -15,6 +15,8 @@ Fold Change = 2 ^-ΔΔCt
 | Inhibitor Treat. | 5.78996 | 2.81930 | 1.71864 | 1.00376 | 5.45955 | 4.63422 | 8.98946 | 2.57608 | 2.53384 | 9.00546 | -0.95235| 2.09203 | 1.60920 | 1.34077 |
 | ΔΔCt             | -0.0085 | 0.15118 | 0.29743 | -0.0666 | 0.40079 | -0.4214 | 1.26457 | 0.46587 | 0.25828 | 2.62286 | 1.37442 | 1.68739 | -0.1673 | 0.51013 |
 | R (Fold Change)  | 1.00593 | 0.90051 | 0.81370 | 1.04722 | 0.75744 | 1.33922 | 0.41622 | 0.72403 | 0.83609 | 0.16235 | 0.38571 | 0.31049 | 1.12297 | 0.70216 |
+
+![qPCR results](https://github.com/arikattia/arik_attia_Notebook/blob/master/images/qPCR.png)
 
 results  
 Value = 1 (log₂ = 0): No change in expression.  
