@@ -66,6 +66,16 @@ Activate the environment by: conda activate XXX
 
 Copy the path of the Python code and run it
 
+The Python code works well on the Lynx system; however, on Windows, saving the calculated volume fails to save the numbers correctly. Therefore, it is possible to calculate the total volume with Fiji. 
+
+###To measure the total volume in Fiji, do this:
+1. Open the total volume dataset
+2. Image > Stacks > Z project, Projection type: Sum. It will produce a new image as output.
+3. Analyze > Set measurements > check the 'Integrated density' box
+4. Click on the result of the Z sum projection, then Analyze > Measure
+5. The value in the last column, 'RawIntDen' is your volume in units of pixels
+6. Multiply this by 15*15*15 to get volume in um^3 
+
 
 
 
