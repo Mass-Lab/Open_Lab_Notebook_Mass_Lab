@@ -48,6 +48,7 @@ Open Fiji and make sure you have the BoneJ plugin; if not, add it.
 Open binary data set the scale at: analyze->set scale in micron
 
 Open: Plugin->bonej->slicegeometry and set the parameters: 
+
 ![image](https://github.com/talimass/Talimass_Lab_Notebook_Mass_Lab/blob/master/images/bonej setting.png?raw=true)
 
 Plot the Mean Thick 3D (¬µm) by slice from the csv file
