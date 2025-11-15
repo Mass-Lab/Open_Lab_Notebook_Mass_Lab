@@ -4,37 +4,37 @@
 
 Open data and reslice: image->stack->reslice 
 
-![image](/Users/talimass/Documents/Documents - MacBook Pro/GitHub/Talimass_Lab_Notebook_Mass_Lab/images/Fiji_Reslice.png)
+![image](https://github.com/talimass/Talimass_Lab_Notebook_Mass_Lab/blob/master/images/Fiji_Reslice.png?raw=true)
 
 Reslice from the top or from right to make the stack horizontal
 
-![image](/Users/talimass/Documents/Documents - MacBook Pro/GitHub/Talimass_Lab_Notebook_Mass_Lab/images/reslice_stack.png)
+![image](https://github.com/talimass/Talimass_Lab_Notebook_Mass_Lab/blob/master/images/reslice_stack.png?raw=true)
 
 Save Substack by using ROI of intrast. ROI can be saved to ROImanager and reopened from there: Analyze->Tools->ROImanager
 
-![image](/Users/talimass/Documents/Documents - MacBook Pro/GitHub/Talimass_Lab_Notebook_Mass_Lab/images/ROImanager.png)
+![image](https://github.com/talimass/Talimass_Lab_Notebook_Mass_Lab/blob/master/images/ROImanager.png?raw=true)
 
 ##Data segmentation using trainable weka segmentation
 
 In Fiji, open Plugin -> Segmentation -> trainable weka segmentation
 
-![image](/Users/talimass/Documents/Documents - MacBook Pro/GitHub/Talimass_Lab_Notebook_Mass_Lab/images/Waka.png)
+![image](https://github.com/talimass/Talimass_Lab_Notebook_Mass_Lab/blob/master/images/Waka.png?raw=true)
 
 After open rename the labels of the class in setting.
 
 
-![image](/Users/talimass/Documents/Documents - MacBook Pro/GitHub/Talimass_Lab_Notebook_Mass_Lab/images/weka_open.png)
+![image](https://github.com/talimass/Talimass_Lab_Notebook_Mass_Lab/blob/master/images/weka_open.png?raw=true)
 
 Using the freehand tool, mark the area at each section and add to the relevant class. Repeat in about 20 slices.
 
-![image](/Users/talimass/Documents/Documents - MacBook Pro/GitHub/Talimass_Lab_Notebook_Mass_Lab/images/weka_seg.png)
+![image](https://github.com/talimass/Talimass_Lab_Notebook_Mass_Lab/blob/master/images/weka_seg.png?raw=true)
 
 Once the segmentation is complete, use the train classifier option.
 It is possible to save data, save classifiers, and reload them in the next set.
 
-![image](/Users/talimass/Documents/Documents - MacBook Pro/GitHub/Talimass_Lab_Notebook_Mass_Lab/images/weka_after.png)
+![image](https://github.com/talimass/Talimass_Lab_Notebook_Mass_Lab/blob/master/images/weka_after.png?raw=true)
 
-Make sure the segmentation correct before creating the results.
+Make sure the segmentation is correct before creating the results.
 
 After creating the result, adjust the threshold to BW using the Otso. Make sure the void value is 0 and the skeleton is 255, if not, invert the image: edit -> invert.
 
@@ -48,7 +48,7 @@ Open Fiji and make sure you have the BoneJ plugin; if not, add it.
 Open binary data set the scale at: analyze->set scale in micron
 
 Open: Plugin->bonej->slicegeometry and set the parameters: 
-![image](/Users/talimass/Documents/Documents - MacBook Pro/GitHub/Talimass_Lab_Notebook_Mass_Lab/images/bonej setting.png)
+![image](https://github.com/talimass/Talimass_Lab_Notebook_Mass_Lab/blob/master/images/bonej setting.png?raw=true)
 
 Plot the Mean Thick 3D (¬µm) by slice from the csv file
 
