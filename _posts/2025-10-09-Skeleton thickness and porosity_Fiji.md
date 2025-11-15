@@ -4,11 +4,11 @@
 
 Open data and reslice: image->stack->reslice 
 
-![image](images/Fiji_Reslice.png)
+![image](/Users/talimass/Documents/Documents - MacBook Pro/GitHub/Talimass_Lab_Notebook_Mass_Lab/images/Fiji_Reslice.png)
 
 Reslice from the top or from right to make the stack horizontal
 
-![image](images/reslice_stack.png)
+![image](/Users/talimass/Documents/Documents - MacBook Pro/GitHub/Talimass_Lab_Notebook_Mass_Lab/images/reslice_stack.png)
 
 Save Substack by using ROI of intrast. ROI can be saved to ROImanager and reopened from there: Analyze->Tools->ROImanager
 
