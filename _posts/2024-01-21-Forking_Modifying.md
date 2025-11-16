@@ -30,7 +30,7 @@ _Written by Maggie Schedl_
 
 6. Login to [GitHub](https://github.com/) and go to [Mass's Notebook](https://github.com/talimass/Talimass_Lab_Notebook_Mass_Lab) . If you don't have an account, make one. It's free!
 
-7. Click the button in the top right corner that says Fork. It will take everything from Hollie's repository and create a copy in your account. Once that is done go into the settings of that repository and change the name. For example mine is Talimass_Lab_Notebook_Mass_Lab. Just remember to not use spaces.
+7. Click the button in the top right corner that says Fork. It will take everything from Tali's repository and create a copy in your account. Once that is done go into the settings of that repository and change the name. For example mine is Talimass_Lab_Notebook_Mass_Lab. Just remember to not use spaces.
 
 8. Whenever you want to get back to the home of your repository just click the <>Code tab. In that tab click the green button on the right that says Clone or Download. It will give you a link, copy that link.
 
