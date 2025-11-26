@@ -9,7 +9,7 @@ The microscope software can be installed on any PC. You can download it from the
 ###Switch On
 
 Press ON/OFF button at the back of the microscope.
-![On/Off] (/Users/talimass/Documents/Documents - MacBook Pro/GitHub/Open_Lab_Notebook_Mass_Lab/images/Leica1.HEIC)
+![On/Off] (images/Leica1.HEIC)
 
 Wait for the LED to turn white (ready).
 
@@ -23,7 +23,7 @@ We have 1X and 0.3X lenses; only one can be installed at a time. The lenses are 
 The 1X lens comes with an adaptor installed.
 
 To replace a lens, first disconnect the light holder 
-![](/Users/talimass/Documents/Documents - MacBook Pro/GitHub/Open_Lab_Notebook_Mass_Lab/images/Leica4.HEIC)
+![](images/Leica4.HEIC)
 
 Hold the lens from the bottom without touching the lens itself, then place it in the lens box (the X1 lens in a bag first). 
 
@@ -38,7 +38,7 @@ Use the focus knobs to bring the sample into sharp view.
 
 ####Zoom: 
 Rotate the zoom knob to change magnification.
-Click-stop: Push slider toward knob to enable fixed zoom steps (for measurements).
+Click-stop: Push the slider toward the knob to enable fixed zoom steps (for measurements).
 
 ####Illumination: 
 Press the light button to turn on LEDs; adjust brightness with + / – buttons. This is a segmented light system, so it is possible to turn off part of the LEDs and also to illuminate from the side of the diagonal. In order to switch between the different modes, press the middle button on the left side of the light and use the arrows to change the direction of the light. 
@@ -47,7 +47,7 @@ Press the light button to turn on LEDs; adjust brightness with + / – buttons. 
 
 1. Insert USB stick in USB SPEED port.
 2. Use the on-screen display (OSD) or optional footswitch to take pictures.
-![](/Users/talimass/Documents/Documents - MacBook Pro/GitHub/Open_Lab_Notebook_Mass_Lab/images/Leica3.HEIC)
+![](images/Leica3.HEIC)
 3. Images are saved in JPG/TIF/BMP format and can be found in the gallery icon
 4. White balance: set a white paper to calibrate the balance.
 4. Compare option: choose an image from the gallery with right-click, choose the compare option, and can see both the live image and the image to compare.
