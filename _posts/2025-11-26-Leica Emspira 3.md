@@ -9,7 +9,7 @@ The microscope software can be installed on any PC. You can download it from the
 ###Switch On
 
 Press ON/OFF button at the back of the microscope.
-![On/Off](images/Leica1.HEIC)
+![On/Off](https://github.com/Mass-Lab/Open_Lab_Notebook_Mass_Lab/blob/master/images/Leica1.HEIC)
 
 Wait for the LED to turn white (ready).
 
