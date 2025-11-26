@@ -1,6 +1,6 @@
 #Leica Emspira 3
 
-All information about the stereoscope can be found [Here] (https://www.leica-microsystems.com/products/digital-microscopes/p/emspira-3/)
+All information about the stereoscope can be found [Here](https://www.leica-microsystems.com/products/digital-microscopes/p/emspira-3/)
 
 The microscope is a standalone instrument; all images are saved directly to a USB stick, so make sure you have one connected to the speed USB slot at the back of the microscope before you start working. 
 
@@ -9,7 +9,7 @@ The microscope software can be installed on any PC. You can download it from the
 ###Switch On
 
 Press ON/OFF button at the back of the microscope.
-![On/Off] (https://github.com/Mass-Lab/Open_Lab_Notebook_Mass_Lab/blob/master/images/Leica1.HEIC)
+![On/Off](images/Leica1.HEIC)
 
 Wait for the LED to turn white (ready).
 
