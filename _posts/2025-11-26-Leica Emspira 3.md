@@ -9,7 +9,8 @@ The microscope software can be installed on any PC. You can download it from the
 ###Switch On
 
 Press ON/OFF button at the back of the microscope.
-![On/Off](https://github.com/Mass-Lab/Open_Lab_Notebook_Mass_Lab/blob/master/images/Leica1.HEIC)
+
+![On/Off](https://raw.githubusercontent.com/Mass-Lab/Open_Lab_Notebook_Mass_Lab/master/images/Leica1.jpg)
 
 Wait for the LED to turn white (ready).
 
@@ -23,7 +24,7 @@ We have 1X and 0.3X lenses; only one can be installed at a time. The lenses are 
 The 1X lens comes with an adaptor installed.
 
 To replace a lens, first disconnect the light holder 
-![](https://github.com/Mass-Lab/Open_Lab_Notebook_Mass_Lab/blob/master/images/Leica4.HEIC)
+![](https://raw.githubusercontent.com/Mass-Lab/Open_Lab_Notebook_Mass_Lab/master/images/Leica4.jpg)
 
 Hold the lens from the bottom without touching the lens itself, then place it in the lens box (the X1 lens in a bag first). 
 
@@ -47,7 +48,7 @@ Press the light button to turn on LEDs; adjust brightness with + / – buttons. 
 
 1. Insert USB stick in USB SPEED port.
 2. Use the on-screen display (OSD) or optional footswitch to take pictures.
-![](https://github.com/Mass-Lab/Open_Lab_Notebook_Mass_Lab/blob/master/images/Leica3.HEIC)
+![](https://raw.githubusercontent.com/Mass-Lab/Open_Lab_Notebook_Mass_Lab/master/images/Leica3.jpg)
 3. Images are saved in JPG/TIF/BMP format and can be found in the gallery icon
 4. White balance: set a white paper to calibrate the balance.
 4. Compare option: choose an image from the gallery with right-click, choose the compare option, and can see both the live image and the image to compare.
