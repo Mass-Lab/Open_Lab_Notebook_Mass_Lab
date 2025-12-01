@@ -55,6 +55,10 @@ Press the light button to turn on LEDs; adjust brightness with + / – buttons. 
 5. -/+ bottom: camera setting, can change between full automatic and manual mode.
 6. Measurement: can be done on a live image only, but can use the freeze mode in the measurement mode
 
+## Connecting your own computer
+
+In order to connect your own computer (PC only), please replace the power line with the usb cord in the part box. This will ensure power to the microscope as well. Please install the computer [software] (https://drive.google.com/file/d/1Z7j4wysonebmClA7WCwn2JAU58sLmvsz/view?usp=sharing) in order to operate the microscope. 
+
 ## Turn off the camera and light at the end of use
 1. Cover the microscope when not in use.
 2. Clean lenses with lens cloth and ethanol (never harsh chemicals).
