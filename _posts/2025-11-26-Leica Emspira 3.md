@@ -57,7 +57,7 @@ Press the light button to turn on LEDs; adjust brightness with + / – buttons. 
 
 ## Connecting your own computer
 
-In order to connect your own computer (PC only), please replace the power line with the usb cord in the part box. This will ensure power to the microscope as well. Please install the computer [software] (https://drive.google.com/file/d/1Z7j4wysonebmClA7WCwn2JAU58sLmvsz/view?usp=sharing) in order to operate the microscope. 
+In order to connect your own computer (PC only), please replace the power line with the usb cord in the part box. This will ensure power to the microscope as well. Please install the computer [software](https://drive.google.com/file/d/1Z7j4wysonebmClA7WCwn2JAU58sLmvsz/view?usp=sharing) in order to operate the microscope. 
 
 ## Turn off the camera and light at the end of use
 1. Cover the microscope when not in use.
