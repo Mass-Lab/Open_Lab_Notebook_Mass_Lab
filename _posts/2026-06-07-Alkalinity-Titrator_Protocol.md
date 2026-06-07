@@ -86,7 +86,7 @@ Contents
     14. Place the temperature probe back in its original slot before next steps.
     15.  Place the pH sensor in the position next to the propelle. 
     16. Open the plastic cap on the pH sensor and leave open throughout use. pH will not be measured otherwise.
-    [](
+    ![](https://github.com/Mass-Lab/Open_Lab_Notebook_Mass_Lab/blob/master/images/Alk14.jpg)
         1. Before calibrations can be made, look at the top of the Sensor for KCl, make sure the KCl is filled to fully cover the metal inside by the grey cap, skip to [19]. If not, follow the step below.
         1. If KCl reservoir is low, open the cap on the sensor’s reservoir and add a few drops of KCl on the opening.
     17. Make sure that the cap is **open at all times**, so it can measure the pH.
@@ -102,13 +102,13 @@ Contents
   - Calibration must be performed before starting work.
   - *Note: Do not expose the electrode to air for more than a few minutes*. ***If you take a long break (over 10 minutes) from work, immerse the electrode in undiluted seawater and make sure the level in the beaker is high enough***.
 
-![](https://github.com/Putnam-Lab/Lab_Management/blob/master/Lab_Resources/Equipment_Protocols/Equip_Images/pH_probe.jpg)
+![](https://github.com/Mass-Lab/Open_Lab_Notebook_Mass_Lab/blob/master/images/pH_probe.jpg)
 
   - Check the level of the electrolyte solution inside the electrode. The electrolyte level should reach 0.5 cm below the hole. If the level is lower, add 3M KCl storage solution.
   - External rinsing: Rinse the electrode with DDW water and gently absorb the excess with kimwipes without rubbing and move it to its designated place in the titration position.
      1. Fill 3 beakers with DDW and set them on the carousel in positions 1, 2, 3. Fill 3 beakers with buffer solutions: 4.00, 7.00, 9.00 pH and place them on the carousel in positions 4, 5, 6.
      2. Ensure the electrode is positioned at Position 21 (DDW) before starting.
-     3. In the application, go to Workplace -> Sample Table -> New -> Method -> Calibration pH Electrode -> Start.
+     3. In the application, go to Workplace -> Sample Table -> New -> Method -> Calibration pH Electrode -> Start. 
 Wait for the calibration to finish.
 Verify the slope in the Results Window:
 The slope should be >95%. If not, recalibrate.
