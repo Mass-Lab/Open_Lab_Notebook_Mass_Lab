@@ -54,8 +54,8 @@ Contents
 ---
 
 1. <a name="Pre-Setup"></a> **Pre-Setup**
-    1. Since you are working with acid. You must wear a Lab Coat and Examination Gloves always, before starting the experiment. Safety Goggles is optional. No food or drink.
-    2. Do not remove from the lab bench or move materials between rooms. The PPP lab is specifically set-up for safety and efficiency.
+    1. Since you are working with acid. You must wear a Lab Coat and Examination Gloves always, before starting the experiment. Safety Goggles are optional. No food or drink.
+   
 
 2. <a name="Sampling"></a> **Sampling**
 	1.	Rinse the sampling bottle 3 times with the sample water.
@@ -86,6 +86,7 @@ Contents
     14. Place the temperature probe back in its original slot before next steps.
     15.  Place the pH sensor in the position next to the propelle. 
     16. Open the plastic cap on the pH sensor and leave open throughout use. pH will not be measured otherwise.
+    [](
         1. Before calibrations can be made, look at the top of the Sensor for KCl, make sure the KCl is filled to fully cover the metal inside by the grey cap, skip to [19]. If not, follow the step below.
         1. If KCl reservoir is low, open the cap on the sensor’s reservoir and add a few drops of KCl on the opening.
     17. Make sure that the cap is **open at all times**, so it can measure the pH.
